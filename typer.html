@@ -207,6 +207,20 @@ textarea {
 </th>
 <th>
 <button onclick="copytext()">Copy text</button>
+<br>
+<select id="font" oninput="fontChange()">
+	<option value="Arial" selected="selected">Arial</option>
+	<option value="Consolas">Consolas</option>
+	<option value="Courier">Courier</option>
+	<option value="Noto Sans Armenian">Noto Sans Armenian</option>
+	<option value="Noto Serif Armenian">Noto Serif Armenian</option>
+	<option value="ArmBoloragir">ArmBoloragir</option>
+	<option value="ArTarumianHeghnar Regular Italic">ArTarumianHeghnar Regular Italic</option>
+	<option value="Hianali">Hianali</option>
+	<option value="Art Heghnar">Art Heghnar</option>
+	<option value="Armenian SchoolScript Normal">Armenian SchoolScript Normal</option>
+	<option value="ArmScript">ArmScript</option>
+</select>
 </th>
 <th style="width: 200px">Conversion table</th>
 </tr>
@@ -453,19 +467,6 @@ oninput="onInputTextChange(this.value)"></textarea>
 
 
 <br><p>
-<select id="font" oninput="fontChange()">
-	<option value="Arial" selected="selected">Arial</option>
-	<option value="Consolas">Consolas</option>
-	<option value="Courier">Courier</option>
-	<option value="Noto Sans Armenian">Noto Sans Armenian</option>
-	<option value="Noto Serif Armenian">Noto Serif Armenian</option>
-	<option value="ArmBoloragir">ArmBoloragir</option>
-	<option value="ArTarumianHeghnar Regular Italic">ArTarumianHeghnar Regular Italic</option>
-	<option value="Hianali">Hianali</option>
-	<option value="Art Heghnar">Art Heghnar</option>
-	<option value="Armenian SchoolScript Normal">Armenian SchoolScript Normal</option>
-	<option value="ArmScript">ArmScript</option>
-</select>
 </p>
 
 </center>
