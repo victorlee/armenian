@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armenian typer</title>
+<meta charset="utf-8">
+
+    <script type="text/javascript">
+	  
+var conversion = {
+
+
+"A":"Ա",
+"B":"Բ",
+"G":"Գ",
+"D":"Դ",
+"YE":"Ե",
+"Z":"Զ",
+"E":"Է",
+"W":"Ը",
+"TH":"Թ",
+"ZH":"Ժ",
+"I":"Ի",
+"L":"Լ",
+"X":"Խ",
+"DZ":"Ծ",
+"K":"Կ",
+"H":"Հ",
+"TS":"Ձ",
+"GH":"Ղ",
+"C":"Ճ",
+"M":"Մ",
+"Y":"Յ",
+"N":"Ն",
+"SH":"Շ",
+"VO":"Ո",
+"CH":"Չ",
+"P":"Պ",
+"J":"Ջ",
+"RR":"Ռ",
+"S":"Ս",
+"V":"Վ",
+"T":"Տ",
+"R":"Ր",
+"TSH":"Ց",
+"U":"ՈՒ",
+"PH":"Փ",
+"KH":"Ք",
+"O":"Օ",
+"F":"Ֆ",
+"EV":"ԵՒ",
+
+
+"a":"ա",
+"b":"բ",
+"g":"գ",
+"d":"դ",
+"ye":"ե",
+"z":"զ",
+"e":"է",
+"w":"ը",
+"th":"թ",
+"zh":"ժ",
+"i":"ի",
+"l":"լ",
+"x":"խ",
+"dz":"ծ",
+"k":"կ",
+"h":"հ",
+"ts":"ձ",
+"gh":"ղ",
+"c":"ճ",
+"m":"մ",
+"y":"յ",
+"n":"ն",
+"sh":"շ",
+"vo":"ո",
+"ch":"չ",
+"p":"պ",
+"j":"ջ",
+"rr":"ռ",
+"s":"ս",
+"v":"վ",
+"t":"տ",
+"r":"ր",
+"tsh":"ց",
+"u":"ու",
+"ph":"փ",
+"kh":"ք",
+"o":"օ",
+"f":"ֆ",
+"ev":"և",
+
+"{":"«",
+"}":"»",
+"`":"՝",
+">":"․",
+".":"։",
+"-":"֊",
+"!":"՜",
+"*":"՛",
+"?":"՞",
+
+
+        };
+
+ var maxLength = Object.keys(conversion)
+    .reduce((a, b) => a.length > b.length ? a : b) // get the longest word
+    .length; // and it's length
+  
+  function convert (text) {
+    var converted = "";
+    var cur = 0;
+    while (cur < text.length) {
+      var testedPhoneme;
+      var symbol = undefined;
+      for (var length = maxLength; length > 0; length --) {
+        testedPhoneme = text.substr(cur, length);
+        if (conversion[testedPhoneme]) {
+          symbol = conversion[testedPhoneme];
+          break; // stop the loop
+        }
+      }
+      if (symbol) {
+        converted += symbol;
+        cur += testedPhoneme.length;
+      }
+      else {
+        converted += text[cur]
+        cur++;
+      }
+    }
+    return converted
+  }
+
+  function onInputTextChange(txt) {
+    var outputTextareaElem = document.getElementById("output_textarea");
+    var div = document.createElement("div");
+    var outputHtmlEntities = convert(txt);
+    div.innerHTML = outputHtmlEntities;
+    outputTextareaElem.value = div.innerText;
+  }
+
+
+        function select() {
+          const input = document.getElementById('input_textarea');
+          input.focus();
+          input.select();
+        }   
+        function copytext() {
+          var copyText = document.getElementById("output_textarea");
+          copyText.select();
+          copyText.setSelectionRange(0, 99999)
+          document.execCommand("copy");
+        }
+
+    </script>
+    
+<style>
+html {
+font-family:arial
+}
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+td, th {
+  border: 1px solid #AAA;
+  text-align: center;
+  padding: 1px;
+}
+textarea {
+	font-size: 16pt;
+	font-family: Arial;
+    width: 96%;
+} 
+.note {
+  border: 1px solid #DDD;
+  width: 30%;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+
+
+</head>
+<body>  
+
+<body>  
+
+<center><h1 class="text-center">Armenian typer</h1>
+
+<table>
+<thead>
+<tr>
+<th>	
+<button onclick="select('input_textarea')">Select all</button>
+<button onclick="document.getElementById('input_textarea').value = ''">Clear</button>
+</th>
+<th>
+<button onclick="copytext()">Copy text</button>
+</th>
+<th style="width: 200px">Conversion table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<textarea
+id="input_textarea"
+autofocus=""
+placeholder="Input text here"
+rows="10"
+oninput="onInputTextChange(this.value)"></textarea>    
+</td>
+<td>
+<textarea rows="10" placeholder="output" id="output_textarea"></textarea>    
+</td>
+<td>
+
+<center>
+<div style="overflow-y: scroll; height:250px; width:170px">
+
+
+<table>
+<thead>
+<tr>
+<th>in.</th>
+<th>out.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>ա</td>
+</tr>
+<tr>
+<td>b</td>
+<td>բ</td>
+</tr>
+<tr>
+<td>g</td>
+<td>գ</td>
+</tr>
+<tr>
+<td>d</td>
+<td>դ</td>
+</tr>
+<tr>
+<td>ye</td>
+<td>ե</td>
+</tr>
+<tr>
+<td>z</td>
+<td>զ</td>
+</tr>
+<tr>
+<td>e</td>
+<td>է</td>
+</tr>
+<tr>
+<td>w</td>
+<td>ը /ə/</td>
+</tr>
+<tr>
+<td>th</td>
+<td>թ</td>
+</tr>
+<tr>
+<td>zh</td>
+<td>ժ</td>
+</tr>
+<tr>
+<td>i</td>
+<td>ի</td>
+</tr>
+<tr>
+<td>l</td>
+<td>լ</td>
+</tr>
+<tr>
+<td>x</td>
+<td>խ</td>
+</tr>
+<tr>
+<td>dz</td>
+<td>ծ</td>
+</tr>
+<tr>
+<td>k</td>
+<td>կ</td>
+</tr>
+<tr>
+<td>h</td>
+<td>հ</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>ձ</td>
+</tr>
+<tr>
+<td>gh</td>
+<td>ղ</td>
+</tr>
+<tr>
+<td>c</td>
+<td>ճ</td>
+</tr>
+<tr>
+<td>m</td>
+<td>մ</td>
+</tr>
+<tr>
+<td>y</td>
+<td>յ</td>
+</tr>
+<tr>
+<td>n</td>
+<td>ն</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>շ</td>
+</tr>
+<tr>
+<td>vo</td>
+<td>ո</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>չ</td>
+</tr>
+<tr>
+<td>p</td>
+<td>պ</td>
+</tr>
+<tr>
+<td>j</td>
+<td>ջ</td>
+</tr>
+<tr>
+<td>rr</td>
+<td>ռ</td>
+</tr>
+<tr>
+<td>s</td>
+<td>ս</td>
+</tr>
+<tr>
+<td>v</td>
+<td>վ</td>
+</tr>
+<tr>
+<td>t</td>
+<td>տ</td>
+</tr>
+<tr>
+<td>r</td>
+<td>ր</td>
+</tr>
+<tr>
+<td>tsh</td>
+<td>ց</td>
+</tr>
+<tr>
+<td>u</td>
+<td>ու</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>փ</td>
+</tr>
+<tr>
+<td>kh</td>
+<td>ք</td>
+</tr>
+<tr>
+<td>o</td>
+<td>օ</td>
+</tr>
+<tr>
+<td>f</td>
+<td>ֆ</td>
+</tr>
+<tr>
+<td>ev</td>
+<td>և</td>
+</tr>
+<tr>
+<td>{</td>
+<td>«</td>
+</tr>
+<tr>
+<td>}</td>
+<td>»</td>
+</tr>
+<tr>
+<td>`</td>
+<td>՝</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>․</td>
+</tr>
+<tr>
+<td>.</td>
+<td>։</td>
+</tr>
+<tr>
+<td>-</td>
+<td>֊</td>
+</tr>
+<tr>
+<td>!</td>
+<td>՜</td>
+</tr>
+<tr>
+<td>*</td>
+<td>՛</td>
+</tr>
+<tr>
+<td>?</td>
+<td>՞</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</center>
+
+</td>
+</tr>
+</tbody>
+</table>
+</center>
+
+</body>
+</html>
